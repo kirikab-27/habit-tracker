@@ -5,6 +5,7 @@ import { HabitList } from '@/components/HabitList'
 import { HabitForm } from '@/components/HabitForm'
 import { CalendarView } from '@/components/CalendarView'
 import { Statistics } from '@/components/Statistics'
+import { PomodoroTimer } from '@/components/PomodoroTimer'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Plus } from 'lucide-react'
@@ -99,10 +100,11 @@ export default function Home() {
 
       <main className="container mx-auto px-4 py-8">
         <Tabs defaultValue="today" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="today">今日</TabsTrigger>
             <TabsTrigger value="calendar">カレンダー</TabsTrigger>
             <TabsTrigger value="stats">統計</TabsTrigger>
+            <TabsTrigger value="pomodoro">ポモドーロ</TabsTrigger>
           </TabsList>
 
           <TabsContent value="today" className="mt-6">
@@ -120,6 +122,10 @@ export default function Home() {
 
           <TabsContent value="stats" className="mt-6">
             <Statistics habits={habits} />
+          </TabsContent>
+
+          <TabsContent value="pomodoro" className="mt-6">
+            <PomodoroTimer />
           </TabsContent>
         </Tabs>
       </main>
